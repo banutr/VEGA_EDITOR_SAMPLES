@@ -1,0 +1,286 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v3.0.json",
+  "width": 300,
+  "height": 300,
+	"padding": {
+		"left": 20,
+		"top": 5,
+		"right": 20,
+		"bottom": 5
+	},
+	"autosize": {
+		"type": "pad",
+		"resize": true
+	},
+	"data": [{
+		"name": "table",
+		"format": {
+			"type": "json",
+			"parse": "auto"
+		},
+		"transform": [{
+			"type": "collect",
+			"sort": {
+				"field": {
+					"signal": "valueField"
+				},
+				"order": "descending"
+			}
+		}],
+		"values": [{
+			"cc": "United States",
+			"pt": "A",
+			"total1": 11,
+			"groupId1": 1,
+			"value": 600,
+			"logVal": 2.7781512503836434
+		}, {
+			"cc": "Greenland",
+			"pt": "A",
+			"total1": 4,
+			"groupId1": 4,
+			"value": 900,
+			"logVal": 2.9542425094393248
+		}, {
+			"cc": "Mexico",
+			"pt": "G",
+			"total1": 2,
+			"groupId1": 5,
+			"value": 273,
+			"logVal": 2.436162647040756
+		}, {
+			"cc": "Canada",
+			"pt": "A",
+			"total1": 2,
+			"groupId1": 6,
+			"value": 30,
+			"logVal": 1.4771212547196624
+		}, {
+			"cc": "Chile",
+			"pt": "A",
+			"total1": 1,
+			"groupId1": 7,
+			"value": 105,
+			"logVal": 2.0211892990699383
+		}, {
+			"cc": "Brazil",
+			"pt": "A",
+			"total1": 1,
+			"groupId1": 7,
+			"value": 540,
+			"logVal": 2.7323937598229686
+		}]
+	}],
+	"signals": [{
+		"name": "selectedBar",
+		"value": "",
+		"on": [{
+			"events": "rect:mouseover",
+			"update": "datum[labelField]"
+		}, {
+			"events": "rect:mouseout!",
+			"update": "''"
+		}, {
+			"events": "@countryLabel:mouseover",
+			"update": "datum.value"
+		}, {
+			"events": "@countryLabel:mouseout!",
+			"update": "''"
+		}]
+	}, {
+		"name": "mouseClickBar",
+		"value": "",
+		"on": [{
+			"events": "rect:mouseup",
+			"update": "datum[labelField]"
+		}, {
+			"events": "rect:mousedown!",
+			"update": "''"
+		}, {
+			"events": "@countryLabel:mouseup",
+			"update": "datum.value"
+		}, {
+			"events": "@countryLabel:mousedown!",
+			"update": "''"
+		}]
+	}, {
+		"name": "valueField",
+    "value": "value"
+	}, {
+		"name": "labelField",
+    "value": "cc"
+	}, {
+		"name": "maxValue",
+    "value": 900
+	}],
+	"scales": [{
+		"name": "scale_convert",
+		"type": "ordinal",
+		"domain": {
+			"data": "table",
+			"field": "value"
+		}
+	}, {
+		"name": "xscale",
+		"type": "linear",
+		"domain": {
+			"data": "table",
+			"field": {
+				"signal": "valueField"
+			}
+		},
+		"range": "width"
+	}, {
+		"name": "yscale",
+		"type": "band",
+		"domain": {
+			"data": "table",
+			"field": {
+				"signal": "labelField"
+			}
+		},
+		"range": "height",
+		"padding": 0.2
+	}, {
+		"name": "color",
+		"type": "ordinal",
+		"domain": {
+			"data": "table",
+			"field": {
+				"signal": "labelField"
+			}
+		},
+		"range": ["#d2d6ee", "#caceeb", "#c2c7e8", "#bac0e5", "#abb2e0", "#9aa3da", "#8b95d4", "#7b86cf", "#6c78c9", "#5c6ac4"],
+		"reverse": true
+	}],
+	"axes": [{
+		"orient": "bottom",
+		"scale": "xscale",
+		"format": "s",
+		"grid": true,
+		"encode": {
+			"grid": {
+				"update": {
+					"stroke": {
+						"value": "lightgray"
+					},
+					"strokeDash": {
+						"value": [10, 10]
+					}
+				}
+			}
+		},
+		"ticks": false,
+		"labelOverlap": true,
+		"tickCount": 4,
+		"zindex": 1
+	}, {
+		"orient": "left",
+		"scale": "yscale",
+		"encode": {
+			"labels": {
+				"name": "countryLabel",
+				"interactive": true,
+				"update": {
+					"cursor": {
+						"value": "pointer"
+					}
+				}
+			}
+		},
+		"ticks": false,
+		"labelPadding": 10,
+		"zindex": 1.5
+	}],
+	"marks": [{
+		"type": "rect",
+		"from": {
+			"data": "table"
+		},
+		"encode": {
+			"enter": {
+				"y": {
+					"scale": "yscale",
+					"field": {
+						"signal": "labelField"
+					}
+				},
+				"height": {
+					"scale": "yscale",
+					"band": 1
+				},
+				"x": {
+					"scale": "xscale",
+					"signal": "maxValue"
+				},
+				"x2": {
+					"scale": "xscale",
+					"value": 0
+				}
+			},
+			"update": {
+				"fill": [{
+					"value": "transparent"
+				}],
+				"cornerRadius": {
+					"value": 3
+				},
+				"cursor": {
+					"value": "pointer"
+				}
+			}
+		}
+	}, {
+		"type": "rect",
+		"from": {
+			"data": "table"
+		},
+		"encode": {
+			"enter": {
+				"y": {
+					"scale": "yscale",
+					"field": {
+						"signal": "labelField"
+					}
+				},
+				"height": {
+					"scale": "yscale",
+					"band": 1
+				},
+				"x": {
+					"scale": "xscale",
+					"field": {
+						"signal": "valueField"
+					}
+				},
+				"x2": {
+					"scale": "xscale",
+					"value": 0
+				}
+			},
+			"update": {
+				"opacity": [{
+					"test": "(!selectedBar || selectedBar == datum[labelField])",
+					"value": 1
+				}, {
+					"value": 0.15
+				}],
+				"fill": [{
+					"test": "(selectedBar == datum[labelField])",
+					"value": "#434E8F"
+				}, {
+					"scale": "color",
+					"field": {
+						"signal": "labelField"
+					}
+				}],
+				"cornerRadius": {
+					"value": 3
+				},
+				"cursor": {
+					"value": "pointer"
+				}
+			}
+		}
+	}]
+}
