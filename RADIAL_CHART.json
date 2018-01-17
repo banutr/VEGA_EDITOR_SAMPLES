@@ -4,7 +4,7 @@
 	"height": 500,
 	"data": [{
 		"name": "table",
-		"values":[{"pa":"RICOH KK","caid":"2","total1":27765,"groupId1":1,"value":12096,"count":"12K","legendHoverField":"RICOH KK (27765)","arcValue":12096,"arcTotal":27765},{"pa":"RICOH KK","caid":"1","total1":27765,"groupId1":1,"value":6177,"count":"6K","legendHoverField":"RICOH KK (27765)","arcTotal":27765,"arcValue":6177},{"pa":"RICOH KK","caid":"0","total1":27765,"groupId1":1,"value":9492,"count":"9K","legendHoverField":"RICOH KK (27765)","arcTotal":27765,"arcValue":9492},{"pa":"FUJI XEROX CO LTD","caid":"2","total1":15417,"groupId1":2,"value":8378,"count":"8K","legendHoverField":"FUJI XEROX CO LTD (15417)","arcValue":8378,"arcTotal":15417},{"pa":"FUJI XEROX CO LTD","caid":"1","total1":15417,"groupId1":2,"value":3436,"count":"3K","legendHoverField":"FUJI XEROX CO LTD (15417)","arcTotal":15417,"arcValue":3436},{"pa":"FUJI XEROX CO LTD","caid":"0","total1":15417,"groupId1":2,"value":3603,"count":"4K","legendHoverField":"FUJI XEROX CO LTD (15417)","arcTotal":15417,"arcValue":3603},{"pa":"MICROSOFT CORP","caid":"2","total1":14044,"groupId1":3,"value":7930,"count":"8K","legendHoverField":"MICROSOFT CORP (14044)","arcValue":7930,"arcTotal":14044},{"pa":"MICROSOFT CORP","caid":"1","total1":14044,"groupId1":3,"value":1424,"count":"1K","legendHoverField":"MICROSOFT CORP (14044)","arcTotal":14044,"arcValue":1424},{"pa":"MICROSOFT CORP","caid":"0","total1":14044,"groupId1":3,"value":4690,"count":"5K","legendHoverField":"MICROSOFT CORP (14044)","arcTotal":14044,"arcValue":4690},{"pa":"SEIKO EPSON CORP","caid":"2","total1":13495,"groupId1":4,"value":5595,"count":"6K","legendHoverField":"SEIKO EPSON CORP (13495)","arcValue":5595,"arcTotal":13495},{"pa":"SEIKO EPSON CORP","caid":"1","total1":13495,"groupId1":4,"value":3077,"count":"3K","legendHoverField":"SEIKO EPSON CORP (13495)","arcTotal":13495,"arcValue":3077},{"pa":"SEIKO EPSON CORP","caid":"0","total1":13495,"groupId1":4,"value":4823,"count":"5K","legendHoverField":"SEIKO EPSON CORP (13495)","arcTotal":13495,"arcValue":4823},{"pa":"RICOH CO LTD","caid":"2","total1":11307,"groupId1":5,"value":6533,"count":"7K","legendHoverField":"RICOH CO LTD (11307)","arcValue":6533,"arcTotal":11307},{"pa":"RICOH CO LTD","caid":"1","total1":11307,"groupId1":5,"value":3909,"count":"4K","legendHoverField":"RICOH CO LTD (11307)","arcTotal":11307,"arcValue":3909},{"pa":"RICOH CO LTD","caid":"0","total1":11307,"groupId1":5,"value":865,"count":865,"legendHoverField":"RICOH CO LTD (11307)","arcTotal":11307,"arcValue":865},{"pa":"[unspecified]","caid":"2","total1":10962,"groupId1":6,"value":1587,"count":"2K","legendHoverField":"[unspecified] (10962)","arcValue":1587,"arcTotal":10962},{"pa":"[unspecified]","caid":"1","total1":10962,"groupId1":6,"value":1578,"count":"2K","legendHoverField":"[unspecified] (10962)","arcTotal":10962,"arcValue":1578},{"pa":"[unspecified]","caid":"0","total1":10962,"groupId1":6,"value":7797,"count":"8K","legendHoverField":"[unspecified] (10962)","arcTotal":10962,"arcValue":7797},{"pa":"BROTHER IND LTD","caid":"2","total1":10197,"groupId1":7,"value":6262,"count":"6K","legendHoverField":"BROTHER IND LTD (10197)","arcValue":6262,"arcTotal":10197},{"pa":"BROTHER IND LTD","caid":"1","total1":10197,"groupId1":7,"value":2680,"count":"3K","legendHoverField":"BROTHER IND LTD (10197)","arcTotal":10197,"arcValue":2680},{"pa":"BROTHER IND LTD","caid":"0","total1":10197,"groupId1":7,"value":1255,"count":"1K","legendHoverField":"BROTHER IND LTD (10197)","arcTotal":10197,"arcValue":1255},{"pa":"SHARP KK","caid":"2","total1":9227,"groupId1":8,"value":5237,"count":"5K","legendHoverField":"SHARP KK (9227)","arcValue":5237,"arcTotal":9227},{"pa":"SHARP KK","caid":"1","total1":9227,"groupId1":8,"value":2407,"count":"2K","legendHoverField":"SHARP KK (9227)","arcTotal":9227,"arcValue":2407},{"pa":"SHARP KK","caid":"0","total1":9227,"groupId1":8,"value":1583,"count":"2K","legendHoverField":"SHARP KK (9227)","arcTotal":9227,"arcValue":1583},{"pa":"KONICA MINOLTA BUSINESS TECH","caid":"2","total1":5632,"groupId1":9,"value":2404,"count":"2K","legendHoverField":"KONICA MINOLTA BUSINESS TECH (5632)","arcValue":2404,"arcTotal":5632},{"pa":"KONICA MINOLTA BUSINESS TECH","caid":"1","total1":5632,"groupId1":9,"value":1986,"count":"2K","legendHoverField":"KONICA MINOLTA BUSINESS TECH (5632)","arcTotal":5632,"arcValue":1986},{"pa":"KONICA MINOLTA BUSINESS TECH","caid":"0","total1":5632,"groupId1":9,"value":1242,"count":"1K","legendHoverField":"KONICA MINOLTA BUSINESS TECH (5632)","arcTotal":5632,"arcValue":1242},{"pa":"KYOCERA MITA CORP","caid":"2","total1":5547,"groupId1":10,"value":1964,"count":"2K","legendHoverField":"KYOCERA MITA CORP (5547)","arcValue":1964,"arcTotal":5547},{"pa":"KYOCERA MITA CORP","caid":"1","total1":5547,"groupId1":10,"value":2105,"count":"2K","legendHoverField":"KYOCERA MITA CORP (5547)","arcTotal":5547,"arcValue":2105},{"pa":"KYOCERA MITA CORP","caid":"0","total1":5547,"groupId1":10,"value":1478,"count":"1K","legendHoverField":"KYOCERA MITA CORP (5547)","arcTotal":5547,"arcValue":1478}],
+		"url":"https://api.myjson.com/bins/p214t",
 		"transform": [{
 			"type": "stack",
 			"field": "arcValue",
@@ -79,6 +79,15 @@
 		}]
 	}],
 	"scales": [{
+		"name": "logged",
+		"type": "log",
+		"domain": [1,{"signal": "arcMaxValue"}],
+		"range": [{
+			"signal": "width*0.03"
+		}, {
+			"signal": "width*0.50"
+		}]
+	},{
 		"name": "r",
 		"type": "linear",
 		"domain": {
@@ -107,18 +116,8 @@
 		},
 		"encode": {
 			"enter": {
-				"x": {
-					"field": {
-						"group": "width"
-					},
-					"mult": 0.5
-				},
-				"y": {
-					"field": {
-						"group": "height"
-					},
-					"mult": 0.5
-				}
+				"x": {"signal": "width / 2"},
+				"y": {"signal": "height / 2"}
 			},
 			"update": {
 				"startAngle": {
@@ -164,18 +163,8 @@
 		"encode": {
 			"enter": {},
 			"update": {
-				"x": {
-					"field": {
-						"group": "width"
-					},
-					"mult": 0.5
-				},
-				"y": {
-					"field": {
-						"group": "height"
-					},
-					"mult": 0.5
-				},
+			"x": {"signal": "width / 2"},
+				"y": {"signal": "height / 2"},
 				"radius": {
 					"scale": "r",
 					"signal": "(datum.y1+datum.y0)/2",
@@ -220,18 +209,8 @@
 		},
 		"encode": {
 			"enter": {
-				"x": {
-					"field": {
-						"group": "width"
-					},
-					"mult": 0.5
-				},
-				"y": {
-					"field": {
-						"group": "height"
-					},
-					"mult": 0.5
-				},
+						"x": {"signal": "width / 2"},
+				"y": {"signal": "height / 2"},
 				"stroke": {
 					"value": "lightgray"
 				},
@@ -261,20 +240,9 @@
 			"data": "ConcentricCircles"
 		},
 		"encode": {
-			"enter": {},
 			"update": {
-				"x": {
-					"field": {
-						"group": "width"
-					},
-					"mult": 0.5
-				},
-				"y": {
-					"field": {
-						"group": "height"
-					},
-					"mult": 0.5
-				},
+					"x": {"signal": "width / 2"},
+				"y": {"signal": "height / 2"},
 				"radius": {
 					"scale": "r",
 					"field": "value"
@@ -312,18 +280,8 @@
 		},
 		"encode": {
 			"enter": {
-				"x": {
-					"field": {
-						"group": "width"
-					},
-					"mult": 0.5
-				},
-				"y": {
-					"field": {
-						"group": "width"
-					},
-					"mult": 0.5
-				},
+					"x": {"signal": "width / 2"},
+				"y": {"signal": "height / 2"},
 				"stroke": {
 					"value": "#fff"
 				}
