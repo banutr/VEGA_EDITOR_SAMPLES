@@ -1,0 +1,118 @@
+{
+ "$schema": "https://vega.github.io/schema/vega/v3.json",
+ "width": 400,
+ "height": 400,
+ "autosize": "none",
+
+ "signals": [
+   {
+     "name": "selectedMainSlice",
+     "value": {},
+     "on": [
+       {"events": "arc:click!",  "update": "(copy.ipc4 == datum.ipc4)? copy : datum"},
+       {"events": "dblclick!", "update": "{}" }
+     ]
+   },
+   {
+     "name": "selipc8",
+     "value": {},
+     "on": [
+       {"events": "arc:click!",  "update": "datum.ipc8? datum: {}"},
+       {"events": "dblclick!", "update": "{}" }
+     ]
+   },
+   {
+     "name": "copy", 
+     "on": [
+       {"events": "arc:mousedown!", "update": "selectedMainSlice"}
+     ]
+   },
+  {
+  "name": "sb",
+  "on": [
+    {"events": {"signal": "selectedMainSlice"},
+      "update": "selectedMainSlice.ipc4? (PI - selectedMainSlice.startAngle - selectedMainSlice.endAngle)/2 : 0" }
+  ]
+  }, 
+  { "name": "filterField" , "value": "caid" },
+  { "name": "filterValues" , "value": [] }
+   
+ ],
+
+ "data": [
+   {"name": "t", "url" : "https://api.myjson.com/bins/1ea1y1",
+     "transform": [ {"type": "filter", "expr": "indexof(filterValues, toNumber(datum[filterField])) == -1"} ]},
+   {
+     "name": "rawData",
+     "url" : "https://api.myjson.com/bins/1ea1y1",
+     "transform": [
+       {
+         "type": "filter", "expr": "indexof(filterValues, (datum[filterField])) == -1"
+       },
+       {
+         "type": "joinaggregate", "fields": ["value"], "as": ["value"], 
+         "ops": ["sum"], "groupby": ["ipc8"]
+       }
+       
+     ]
+   },
+   {
+     "name": "filteredData",
+     "source": "rawData",
+     "transform": [
+       { "type": "filter", "expr": "datum.caid == data('rawData')[0].caid"}
+     ]
+   },
+   {
+     "name": "mainSliceData", "source": "filteredData",
+     "transform": [
+       { "type": "aggregate", "fields": ["value"], "as": ["value"], "ops": ["sum"], "groupby":[ "ipc4"] },
+       { "type": "pie", "field": "value" } ]
+   },
+   {
+     "name": "subSliceData", "source": "filteredData",
+     "transform": [
+       { "type": "filter", "expr": "selectedMainSlice.ipc4 == datum.ipc4" },
+       { "type": "pie", "field": "value", 
+         "startAngle": {"signal": "selectedMainSlice.ipc4? selectedMainSlice.startAngle: 0"},
+         "endAngle": {"signal": "selectedMainSlice.ipc4? selectedMainSlice.endAngle: 0"}}
+     ]
+   },
+   {
+     "name": "donut", "source": ["mainSliceData", "subSliceData"],
+     "transform": [{ "type": "filter", "expr": "datum!=selectedMainSlice" }]
+   }
+
+ ],
+
+ "scales": [
+   {
+     "name": "color",
+     "type": "ordinal",
+     "range": {"scheme": "category20"}
+   }
+ ],
+
+  "marks": [
+   {
+     "type": "arc",
+     "from": {"data": "donut"},
+     "encode": {
+       "enter": {
+         "fill": {"scale": "color", "field": "ipc4"},
+         "x": {"signal": "width / 2"},
+         "y": {"signal": "height / 2"},
+         "padAngle": {"value": 0.005}
+       },
+       "update": {
+         "startAngle": {"signal": "sb? (datum.startAngle + sb): datum.startAngle"},
+         "endAngle":   {"signal": "sb? (datum.endAngle   + sb): datum.endAngle"},
+         "outerRadius": {"signal": "width / 2"},
+         "innerRadius": {"signal": "width/4"}
+       }
+     }
+   }
+ ]
+
+
+}
