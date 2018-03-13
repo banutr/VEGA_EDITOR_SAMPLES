@@ -1,0 +1,100 @@
+{
+ "$schema": "https://vega.github.io/schema/vega/v3.json",
+ "width": 400,
+ "height": 400,
+ "autosize": "none",
+
+ "signals": [
+   {
+     "name": "selectedMainGroup",
+     "value": {},
+     "on": [
+       {"events": "arc:click!",  "update": "(copy.ipc4 == datum.ipc4)? copy : datum"},
+       {"events": "dblclick!", "update": "{}" }
+     ]
+   },
+   {
+     "name": "selectedSubGroup",
+     "value": {},
+     "on": [
+       {"events": "arc:click!",  "update": "datum.ipc8? datum: {}"},
+       {"events": "dblclick!", "update": "{}" }
+     ]
+   },
+   {
+     "name": "copy", 
+     "on": [
+       {"events": "arc:mousedown!", "update": "selectedMainGroup"}
+     ]
+   },
+  {
+  "name": "sb",
+  "on": [
+    {"events": {"signal": "selectedMainGroup"},
+      "update": "selectedMainGroup.ipc4? (PI - selectedMainGroup.startAngle - selectedMainGroup.endAngle)/2 : 0" }
+  ]
+  }, 
+  { "name": "filterField" , "value": "caid" },
+  { "name": "filterValues" , "value": [] }
+   
+ ],
+
+ "data": [
+     {
+     "name": "rawData",
+     "url" : "https://api.myjson.com/bins/176ocl",
+     "transform": []
+   },
+   {
+     "name": "mainSliceData", "source": "rawData",
+     "transform": [
+       { "type": "aggregate", "fields": ["value"], "as": ["value"], "ops": ["sum"], "groupby":[ "ipc4"] },
+       { "type": "pie", "field": "value" } ]
+   },
+   {
+     "name": "subSliceData", "source": "rawData",
+     "transform": [
+       { "type": "filter", "expr": "selectedMainGroup.ipc4 == datum.ipc4" },
+       { "type": "pie", "field": "value", 
+         "startAngle": {"signal": "selectedMainGroup.ipc4? selectedMainGroup.startAngle: 0"},
+         "endAngle": {"signal": "selectedMainGroup.ipc4? selectedMainGroup.endAngle: 0"}}
+     ]
+   },
+   {
+     "name": "donut", "source": ["mainSliceData", "subSliceData"],
+     "transform": [{ "type": "filter", "expr": "datum!=selectedMainGroup" }]
+   }
+
+ ],
+
+ "scales": [
+   {
+     "name": "color",
+     "type": "ordinal",
+     "range": {"scheme": "category20"}
+   }
+ ],
+
+  "marks": [
+   {
+     "type": "arc",
+     "from": {"data": "donut"},
+     "encode": {
+       "enter": {
+         "fill": {"scale": "color", "field": "ipc4"},
+         "x": {"signal": "width / 2"},
+         "y": {"signal": "height / 2"},
+         "padAngle": {"value": 0.005}
+       },
+       "update": {
+         "startAngle": {"signal": "sb? (datum.startAngle + sb): datum.startAngle"},
+         "endAngle":   {"signal": "sb? (datum.endAngle   + sb): datum.endAngle"},
+         "outerRadius": {"signal": "width / 2"},
+         "innerRadius": {"signal": "width/4"}
+       }
+     }
+   }
+ ]
+
+
+}
